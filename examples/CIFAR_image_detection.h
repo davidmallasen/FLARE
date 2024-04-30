@@ -5,6 +5,11 @@
 #ifndef FLARE_CIFAR_IMAGE_DETECTION_H
 #define FLARE_CIFAR_IMAGE_DETECTION_H
 
+#include <filesystem>
+#include <iostream>
+#include <string>
+#include <vector>
+
 #include <flare/flare.hpp>
 
 // https://github.com/YoongiKim/CIFAR-10-images

@@ -2,6 +2,7 @@
 // Created by macross on 8/7/22.
 //
 
+#include <iterator>
 #include <type_traits>
 #include "dense.hpp"
 

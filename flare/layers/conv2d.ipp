@@ -2,6 +2,8 @@
 // Created by macross on 9/1/22.
 //
 
+#include <iterator>
+
 #include "conv2d.hpp"
 
 namespace fl
