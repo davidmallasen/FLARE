@@ -55,10 +55,17 @@ include_directories("~/tools/eigen")
 ###########################################################################
 
 # Include FLARE ###########################################################
-include_directories("${CMAKE_CURRENT_LIST_DIR}/../")
+include_directories("${CMAKE_CURRENT_LIST_DIR}/../../")
+###########################################################################
+
+# Include OpenCV#### ######################################################
+find_package(OpenCV REQUIRED)
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_definitions(-D USING_OPENCV)
 ###########################################################################
 
 # Setup executables #######################################################
 add_executable(CIFAR_image_detection ${SRC_FOLDER}/main.cpp)
 set_property(TARGET CIFAR_image_detection PROPERTY CXX_STANDARD 17)
+target_link_libraries(CIFAR_image_detection ${OpenCV_LIBS})
 ###########################################################################

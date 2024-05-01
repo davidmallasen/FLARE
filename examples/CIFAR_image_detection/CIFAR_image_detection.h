@@ -12,7 +12,12 @@
 
 #include <flare/flare.hpp>
 
+// Download the dataset from
 // https://github.com/YoongiKim/CIFAR-10-images
+
+// This example needs opencv to read the images, so define the
+// USING_OPENCV macro in CMakeLists.txt
+
 // if using OpenCV to display images from a Tensor, unexpected results will occur, see
 // https://stackoverflow.com/questions/54971083/how-to-use-cvmat-and-eigenmatrix-correctly-opencv-eigen
 // this is just a working example and not tuned for accuracy!!!
@@ -22,7 +27,7 @@ void CIFAR10_CNN()
     namespace fs = std::filesystem;
 
     Dataset cifar(Dims<3>(32, 32, 3), Dims<1>(10));
-    std::string path = "CIFAR-10-images/train/";
+    std::string path = "../CIFAR-10-images/train/";
 
     std::vector<std::string> folders = {
             "airplane", "automobile", "bird", "cat", "deer",
@@ -35,7 +40,7 @@ void CIFAR10_CNN()
         std::cout << "\rAdding to dataset CIFAR class " << i + 1 << "/" << folders.size();
 
         for (const auto &entry: fs::directory_iterator(path + folders[i])) {
-            cifar.Add(entry.path(), label);
+            cifar.Add(entry.path().generic_string(), label);
         }
     }
 
